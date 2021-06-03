@@ -56,5 +56,5 @@ for stock in stocks:
 
 
 #Save to CSV
-df_daily_returns.to_csv ("dailyreturns.csv")
+df_daily_returns.to_csv ("dailyreturns.csv", index = False)
 
