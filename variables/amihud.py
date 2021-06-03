@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[15]:
 
 
 #Import libraries used
@@ -18,7 +17,6 @@ df_daily_returns = pd.read_csv ("dailyreturns.csv")
 df_closing = df_closing[["id","stamp","value"]] 
 
 
-# In[16]:
 
 
 #Merge both dataframes
@@ -37,7 +35,6 @@ df_merged["stamp"] = pd.to_datetime(df_merged["stamp"])
 df_merged = df_merged.set_index(["stamp"])
 
 
-# In[18]:
 
 
 delta_days = 30
@@ -76,14 +73,12 @@ df_amihud = pd.DataFrame(transactions, columns = ["id", "stamp", "summy", "count
 df_amihud = df_amihud.sort_values(by=['id', "stamp"])
 
 
-# In[19]:
 
 
 #Final step of Amihud calculations
 df_amihud['amihud'] = df_amihud.apply(lambda row: (row["summy"]) / row["county"], axis = 1)
 
 
-# In[14]:
 
 
 #Save as CSV
