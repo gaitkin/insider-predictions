@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
 
 #Import libraries used
 import pandas as pd
@@ -18,7 +16,6 @@ df_daily_returns["stamp"] = pd.to_datetime(df_daily_returns["stamp"])
 df_daily_returns = df_daily_returns.set_index(["stamp"])
 
 
-# In[5]:
 
 
 #Calculate volatility
@@ -52,7 +49,6 @@ df_volatility = pd.DataFrame(transactions, columns = ["id", "stamp", "returns"])
 df_volatility = df_volatility.sort_values(by=['id', "stamp"])
 
 
-# In[ ]:
 
 
 #Save as CSV
