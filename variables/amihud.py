@@ -82,5 +82,5 @@ df_amihud['amihud'] = df_amihud.apply(lambda row: (row["summy"]) / row["county"]
 
 
 #Save as CSV
-df_amihud.to_csv ("amihud.csv")
+df_amihud.to_csv ("amihud.csv", index = False)
 
