@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
 
 
 #Import libraries used
@@ -16,7 +15,6 @@ df_trade = pd.read_csv ("tradedata.csv")
 df_trade["stamp"] = pd.to_datetime(df_trade["stamp"])
 
 
-# In[5]:
 
 
 delta_days = 30
@@ -61,7 +59,6 @@ for i in range(iterations):
 df_trading = pd.DataFrame(transactions, columns = ["stamp", "trade"])
 
 
-# In[6]:
 
 
 df_trading.to_csv ("tradechange.csv", index = False)
