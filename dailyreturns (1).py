@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
 
 
 #Import libraries used
@@ -17,7 +16,6 @@ df_insider = pd.read_csv ("insiderdata.csv")
 df_closing = df_closing.sort_values(by=['id', "stamp"])
 
 
-# In[ ]:
 
 
 #Obtain list of stocks in insider dataset and use it to filter stocks in closing dataset so that both datasets contain same stocks
@@ -25,7 +23,6 @@ identifiers = [identifier for identifier in list(set(df_insider.loc[:, "id"])) i
 df_closing_modified = df_closing[df_closing['id'].str.contains(f"^{'$|^'.join(identifiers)}$",regex=True)]
 
 
-# In[ ]:
 
 
 #List of stocks in closing dataset
@@ -56,7 +53,6 @@ for stock in stocks:
     print(stock)
 
 
-# In[ ]:
 
 
 #Save to CSV
