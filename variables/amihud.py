@@ -53,7 +53,7 @@ transactions = {
 id_index = list(df_merged.columns).index("id")
 amihud_index = list(df_merged.columns).index("amihud")
 
-#Next stetp of Amihud calculations
+#Next step of Amihud calculations
 for i in range(iterations):
     begin_transaction_date = (start_date + timedelta(days=delta_days * i)).strftime("%Y-%m-%d")
     end_transaction_date = (start_date + timedelta(days=delta_days * (i + 1))).strftime("%Y-%m-%d")
