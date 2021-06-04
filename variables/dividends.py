@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
 
 
 #Import libraries used
@@ -18,7 +17,6 @@ df_dividends["stamp"] = pd.to_datetime(df_dividends["stamp"])
 df_dividends = df_dividends.set_index(["stamp"])
 
 
-# In[ ]:
 
 
 #EXTRA: Dividend data download
@@ -50,7 +48,6 @@ for stock in stock_list:
         print(stock)
 
 
-# In[ ]:
 
 
 #Arrange downloaded dataframe
@@ -66,7 +63,6 @@ df_dividends_download["stamp"] = pd.to_datetime(df_dividends_download["stamp"])
 df_dividends_download = df_dividends_download.set_index(["stamp"])
 
 
-# In[ ]:
 
 
 #Monthly aggregation of dividends
@@ -102,7 +98,6 @@ df_dividends_sun = df_dividends_sum.set_index('id')
 df_dividends_sum = df_dividends_sum.sort_values(by=['id', "stamp"])
 
 
-# In[ ]:
 
 
 #Save as CSV
