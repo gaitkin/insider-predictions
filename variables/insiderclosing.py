@@ -37,7 +37,6 @@ df_insider = df_insider.set_index(["stamp"])
 df_closing["stamp"] = pd.to_datetime(df_closing["stamp"])
 
 
-# In[14]:
 
 
 #Calculate monthly sum of transactionValue for each type of transaction
