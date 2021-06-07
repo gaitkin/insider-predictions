@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[71]:
 
 
 #Import necessary modules
@@ -18,7 +17,6 @@ df_amihud = pd.read_csv ("amihud.csv")
 df_finali = pd.read_csv ("finaligood.csv")
 
 
-# In[72]:
 
 
 #Drop empty and irrelevant columns
@@ -30,8 +28,6 @@ df_amihud = df_amihud.drop(columns = ["Unnamed: 0","summy","county"])
 df_finali = df_finali.drop(columns = "Unnamed: 0")
 
 
-# In[74]:
-
 
 #Rename columns
 df_interest.rename(columns={'percentage': 'interest'}, inplace=True)
@@ -41,7 +37,6 @@ df_volatility.rename(columns={'returns': 'volatility'}, inplace=True)
 df_finali.rename(columns={'percentage': 'returns'}, inplace=True)
 
 
-# In[75]:
 
 
 #Merge dataframes
@@ -54,7 +49,6 @@ julia = pd.merge(left=julia, right=df_trade, how="left", left_on=["stamp"], righ
 julia = pd.merge(left=julia, right=df_amihud, how="left", left_on=["id","stamp"], right_on=["id","stamp"])
 
 
-# In[13]:
 
 
 #Save as CSV
