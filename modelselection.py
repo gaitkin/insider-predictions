@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[19]:
 
 
 #Import libraries
@@ -19,7 +18,6 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error
 from pylab import *
 
 
-# In[2]:
 
 
 #Dataset
@@ -140,7 +138,6 @@ julia['laginterest11'] = julia.groupby('id')['interest'].shift(-11)
 julia['laginterest12'] = julia.groupby('id')['interest'].shift(-12)
 
 
-# In[15]:
 
 
 #Define function to cross-validate models, where params are variables to be tested
@@ -361,21 +358,18 @@ def modeling(params):
     return (rsquare, adj_rsquare, AIC, rmse, mae, fig)
 
 
-# In[16]:
 
 
 #Test a model
 model1 = modeling(params = ["lagcoeff", "lagdividends", "lagSPprice", "lagSPvol", "laginterest","lagtrade","volatility","amihud"])
 
 
-# In[17]:
 
 
 #Model results
 model1
 
 
-# In[34]:
 
 
 #Model 12 lags
@@ -408,7 +402,6 @@ fe_res12 = model_fe12.fit()
 print(fe_res12)
 
 
-# In[25]:
 
 
 #Model statistics
@@ -416,7 +409,6 @@ R_square_adjusted12 = 1 - (((1-fe_res12.rsquared)*(fe_res12.nobs-1))/(fe_res12.n
 AIC12 = -2*fe_res12.loglik+2*len(exog_vars12)
 
 
-# In[44]:
 
 
 #Predictions
@@ -449,8 +441,6 @@ plt.ylabel("Predictions")
 plt.savefig('reg12.png')
 
 
-# In[28]:
-
 
 #Errors
 test_mse12 = mean_squared_error(joint_outliers12["returns"], joint_outliers12["predictions"])
@@ -458,7 +448,6 @@ test_rmse12 = np.sqrt(test_mse12)
 test_mae12 = mean_absolute_error(joint_outliers12["returns"], joint_outliers12["predictions"])
 
 
-# In[35]:
 
 
 #Model 12 lags (forecasting)
@@ -491,7 +480,6 @@ fe_res12f = model_fe12f.fit()
 print(fe_res12f)
 
 
-# In[30]:
 
 
 #Model statistics
@@ -499,7 +487,6 @@ R_square_adjusted12f = 1 - (((1-fe_res12f.rsquared)*(fe_res12f.nobs-1))/(fe_res1
 AIC12f = -2*fe_res12f.loglik+2*len(exog_vars12f)
 
 
-# In[38]:
 
 
 #Predictions
@@ -532,7 +519,6 @@ plt.ylabel("Predictions")
 plt.savefig('reg12f.png')
 
 
-# In[33]:
 
 
 #Errors
@@ -541,7 +527,6 @@ test_rmse12f = np.sqrt(test_mse12f)
 test_mae12f = mean_absolute_error(joint_outliers12f["returns"], joint_outliers12f["predictions"])
 
 
-# In[36]:
 
 
 #Model 6 lags
@@ -574,7 +559,6 @@ fe_res6 = model_fe6.fit()
 print(fe_res6)
 
 
-# In[37]:
 
 
 #Model statistics
@@ -582,7 +566,6 @@ R_square_adjusted6 = 1 - (((1-fe_res6.rsquared)*(fe_res6.nobs-1))/(fe_res6.nobs-
 AIC6 = -2*fe_res6.loglik+2*len(exog_vars6)
 
 
-# In[45]:
 
 
 #Predictions
@@ -615,7 +598,6 @@ plt.ylabel("Predictions")
 plt.savefig('reg6.png')
 
 
-# In[40]:
 
 
 #Errors
@@ -624,7 +606,6 @@ test_rmse6 = np.sqrt(test_mse6)
 test_mae6 = mean_absolute_error(joint_outliers6["returns"], joint_outliers6["predictions"])
 
 
-# In[41]:
 
 
 #Model 3 lags
@@ -657,7 +638,6 @@ fe_res3 = model_fe3.fit()
 print(fe_res3)
 
 
-# In[42]:
 
 
 #Model statistics
@@ -665,7 +645,6 @@ R_square_adjusted3 = 1 - (((1-fe_res3.rsquared)*(fe_res3.nobs-1))/(fe_res3.nobs-
 AIC3 = -2*fe_res3.loglik+2*len(exog_vars3)
 
 
-# In[43]:
 
 
 #Predictions
@@ -698,7 +677,6 @@ plt.ylabel("Predictions")
 plt.savefig('reg3.png')
 
 
-# In[46]:
 
 
 #Errors
@@ -707,7 +685,6 @@ test_rmse3 = np.sqrt(test_mse3)
 test_mae3 = mean_absolute_error(joint_outliers3["returns"], joint_outliers3["predictions"])
 
 
-# In[47]:
 
 
 #Model 1 lag
@@ -740,7 +717,6 @@ fe_res = model_fe.fit()
 print(fe_res)
 
 
-# In[48]:
 
 
 #Model statistics
@@ -748,7 +724,6 @@ R_square_adjusted = 1 - (((1-fe_res.rsquared)*(fe_res.nobs-1))/(fe_res.nobs-len(
 AIC = -2*fe_res.loglik+2*len(exog_vars)
 
 
-# In[49]:
 
 
 #Predictions
@@ -781,7 +756,6 @@ plt.ylabel("Predictions")
 plt.savefig('reg.png')
 
 
-# In[50]:
 
 
 #Errors
@@ -790,13 +764,11 @@ test_rmse = np.sqrt(test_mse)
 test_mae = mean_absolute_error(joint_outliers["returns"], joint_outliers["predictions"])
 
 
-# In[51]:
 
 
 comparison = compare({"12 month": fe_res12, "6 month": fe_res6, "3 month": fe_res3, "1 month":fe_res}, precision = ("pvalues"), stars = True)
 
 
-# In[52]:
 
 
 print(comparison)
