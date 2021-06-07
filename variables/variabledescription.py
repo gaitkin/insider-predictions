@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[25]:
 
 
 #Import relevant modules
@@ -15,21 +14,18 @@ julia = julia.drop(columns = "Unnamed: 0")
 julia['dividends'] = julia['dividends'].fillna(0)
 
 
-# In[26]:
 
 
 #Describe categorical values
 julia[["id","stamp"]].describe()
 
 
-# In[27]:
 
 
 #Descibe numerical values
 julia.describe()
 
 
-# In[28]:
 
 
 #Create correlation matrix
@@ -39,7 +35,6 @@ plt.savefig('corr.png')
 plt.show()
 
 
-# In[ ]:
 
 
 #Create correlation scatter matrix
@@ -48,7 +43,6 @@ plt.savefig("scat.png")
 plt.show()
 
 
-# In[ ]:
 
 
 #Create lagged values
@@ -63,7 +57,6 @@ julia['lagamihud'] = julia.groupby('id')['amihud'].shift(-1)
 julia['lagreturns'] = julia.groupby('id')["returns"].shift(-1)
 
 
-# In[ ]:
 
 
 #Create correlation matrix with lags
@@ -73,7 +66,6 @@ plt.savefig('corrlag.png')
 plt.show()
 
 
-# In[21]:
 
 
 #Create correlation scatter matrix with lags
