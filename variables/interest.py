@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
 
 
 #Import necessary modules
@@ -13,7 +12,6 @@ from datetime import datetime, timedelta
 df_interest = pd.read_csv ("interestdata.csv")
 
 
-# In[4]:
 
 
 #Compute monthly change in short term interest rate
@@ -61,7 +59,6 @@ for i in range(iterations):
 df_interest_change = pd.DataFrame(transactions, columns = ["stamp", "percentage"])
 
 
-# In[115]:
 
 
 #Save dataframe as CSV
