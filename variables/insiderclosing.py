@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[10]:
-
 
 #Import necessary modules
 import pandas as pd
@@ -17,7 +15,6 @@ df_insider = pd.read_csv ("insiderdata.csv")
 df_closing = pd.read_csv ("closingdata.csv")
 
 
-# In[11]:
 
 
 #ARRANGE INSIDER DATASET
@@ -32,7 +29,6 @@ df_insider["stamp"] = pd.to_datetime(df_insider["stamp"])
 df_insider = df_insider.set_index(["stamp"])
 
 
-# In[12]:
 
 
 #ARRANGE PRICING DATASET
@@ -77,7 +73,6 @@ df_insider_modified = pd.DataFrame(transactions, columns = ["id", "stamp", "tran
 df_insider_modified = df_insider_modified.sort_values(by=['id', "stamp"])
 
 
-# In[15]:
 
 
 #CALCULATIE MAIN REGRESSOR
@@ -98,14 +93,12 @@ mergy.drop(mergy[(mergy['transactionValue_A'] + mergy["transactionValue_D"] == 0
 mergy['coeff'] = mergy.apply(lambda row: (row["transactionValue_A"] - row["transactionValue_D"]) / (row["transactionValue_A"] + row["transactionValue_D"]), axis = 1)
 
 
-# In[16]:
 
 
 #Obtain list of stocks
 identifiers = [identifier for identifier in list(set(df_insider.loc[:, "id"])) if isinstance(identifier, str)]
 
 
-# In[ ]:
 
 
 #Calculate monthly stock returns
@@ -157,7 +150,6 @@ df_price_change = df_price_change.set_index('id')
 df_price_change = df_price_change.sort_values(by=['id', "stamp"])
 
 
-# In[109]:
 
 
 #Select relevant columns
@@ -167,7 +159,6 @@ selective = mergy[["id","stamp","coeff"]]
 finali = pd.merge(left=selective, right=df_price_change, how="left", left_on=["id","stamp"], right_on=["id","stamp"])
 
 
-# In[110]:
 
 
 #Save as CSV
