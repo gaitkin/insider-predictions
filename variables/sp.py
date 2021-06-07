@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[7]:
 
 
 #Import necessary modules
@@ -17,7 +16,6 @@ sp = yf.download('^GSPC', start='2010-01-04', end='2020-01-01')
 sp.to_csv ("SPdata.csv")
 
 
-# In[12]:
 
 
 #Import SP data CSV as dataframe
@@ -27,7 +25,6 @@ df_sp_price = df_sp[["stamp","Close"]]
 df_sp_volume = df_sp[["stamp","Volume"]]
 
 
-# In[13]:
 
 
 #Calculate monthly change in S&P price
@@ -72,7 +69,6 @@ for i in range(iterations):
 df_sp_price_change = pd.DataFrame(transactions, columns = ["stamp", "percentage"])
 
 
-# In[14]:
 
 
 #Calculate monthly change in S&P volume
@@ -117,7 +113,6 @@ for i in range(iterations):
 df_sp_volume_change = pd.DataFrame(transactions, columns = ["stamp", "percentage"])
 
 
-# In[ ]:
 
 
 #Save as CSV
