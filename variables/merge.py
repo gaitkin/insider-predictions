@@ -52,5 +52,5 @@ julia = pd.merge(left=julia, right=df_amihud, how="left", left_on=["id","stamp"]
 
 
 #Save as CSV
-julia.to_csv ("julia.csv")
+julia.to_csv ("julia.csv", index = False)
 
