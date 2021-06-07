@@ -116,6 +116,6 @@ df_sp_volume_change = pd.DataFrame(transactions, columns = ["stamp", "percentage
 
 
 #Save as CSV
-df_sp_price_change.to_csv ("C:/Users/PortatilUPF/Downloads/spvol.csv")
-df_sp_volume_change.to_csv ("C:/Users/PortatilUPF/Downloads/spvol.csv")
+df_sp_price_change.to_csv ("C:/Users/PortatilUPF/Downloads/spvol.csv", index = False)
+df_sp_volume_change.to_csv ("C:/Users/PortatilUPF/Downloads/spvol.csv", index = False)
 
