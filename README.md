@@ -6,3 +6,5 @@ All code was created and run in Jupyter Notebook
 The data used can be found in the following Dropbox:
 
 https://www.dropbox.com/sh/5fy36xoezfop2dq/AABvVo152kqIyn4eUADd6XUma?dl=0
+
+A replication of the insider data has been replicated, as the data may not be redistributed
