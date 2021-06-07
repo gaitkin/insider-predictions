@@ -62,5 +62,5 @@ df_interest_change = pd.DataFrame(transactions, columns = ["stamp", "percentage"
 
 
 #Save dataframe as CSV
-df_interest_change.to_csv ("sinterest.csv")
+df_interest_change.to_csv ("sinterest.csv", index = False)
 
